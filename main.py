@@ -1,4 +1,4 @@
-oddelovac = '-' * 40
+separator = '-' * 40
 
 users = {
     'bob': '123',
@@ -18,21 +18,21 @@ if not users.get(username) == password:
     quit()
 
 else:
-    print(oddelovac)
-    print('Welcome to the app ', username)
+    print(separator)
+    print('Welcome to the app', username.title())
     print('We have 3 texts to be analyzed.')
-    print(oddelovac)
+    print(separator)
     user_choice = input('Enter a number between 1 and 3 to select: ')
 
-    if not user_choice.isalnum():
+    if not user_choice.isnumeric():
 
         print('entered value is not a number, terminating the program..')
         quit()
 
-    elif int(user_choice) not in range(1, 4):  # or [1,2,3] or not in TEXTS var
+    elif user_choice not in range(1, 4):  # or [1,2,3] or not in TEXTS var
 
         print('entered number is not between 1 and 3, terminating the program..')
         quit()
 
     else:
-        print(oddelovac)
+        print(separator)
