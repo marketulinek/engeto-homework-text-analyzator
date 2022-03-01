@@ -1,3 +1,7 @@
+from task_template import TEXTS
+
+# -------------------------------
+
 separator = '-' * 40
 
 users = {
@@ -6,6 +10,8 @@ users = {
     'mike': 'password123',
     'liz': 'pass123'
 }
+
+max_num_of_texts = len(TEXTS)
 
 # -------------------------------
 
@@ -20,19 +26,20 @@ if not users.get(username) == password:
 else:
     print(separator)
     print('Welcome to the app', username.title())
-    print('We have 3 texts to be analyzed.')
+    print(f'We have {max_num_of_texts} texts to be analyzed.')
     print(separator)
-    user_choice = input('Enter a number between 1 and 3 to select: ')
+    user_choice = input(f'Enter a number between 1 and {max_num_of_texts} to select: ')
 
     if not user_choice.isnumeric():
 
         print('entered value is not a number, terminating the program..')
         quit()
 
-    elif user_choice not in range(1, 4):  # or [1,2,3] or not in TEXTS var
+    elif int(user_choice) <= 0 or int(user_choice) > max_num_of_texts:
 
-        print('entered number is not between 1 and 3, terminating the program..')
+        print(f'entered number is not between 1 and {max_num_of_texts}, terminating the program..')
         quit()
 
     else:
         print(separator)
+        print(TEXTS)
