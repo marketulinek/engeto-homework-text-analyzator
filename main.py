@@ -39,7 +39,6 @@ else:
         quit()
 
     else:
-        print(separator)
         text_stats = {
             'titlecase': 0,
             'uppercase': 0,
@@ -47,14 +46,30 @@ else:
             'numeric_strings': 0,
             'sum_of_all_numbers': 0
         }
-        chosen_text = TEXTS[user_choice]
+        chosen_text = TEXTS[int(user_choice)-1].strip().replace('\n', ' ').replace(',', '').replace('.', '')
         list_of_words = chosen_text.split(' ')
 
+        for word in list_of_words:
+
+            if word.istitle():
+                text_stats['titlecase'] += 1
+
+            if word.isupper():
+                text_stats['uppercase'] += 1
+                # TODO '30N' from TEXT[1] got here but shouldn't
+
+            if word.islower():
+                text_stats['lowercase'] += 1
+
+            if word.isnumeric():
+                text_stats['numeric_strings'] += 1
+                text_stats['sum_of_all_numbers'] += int(word)
+
+        print(separator)
         print(f'There are {len(list_of_words)} words in the selected text.')
         print(f'There are {text_stats["titlecase"]} titlecase words.')
         print(f'There are {text_stats["uppercase"]} uppercase words.')
         print(f'There are {text_stats["lowercase"]} lowercase words.')
         print(f'There are {text_stats["numeric_strings"]} numeric strings.')
         print(f'The sum of all the numbers {text_stats["sum_of_all_numbers"]}.')
-
         print(separator)
