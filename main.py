@@ -1,18 +1,16 @@
 from task_template import TEXTS
 
-# -------------------------------
-
-separator = '-' * 40
-
 users = {
     'bob': '123',
     'ann': 'pass123',
     'mike': 'password123',
     'liz': 'pass123'
 }
-
+separator = '-' * 40
 number_of_texts = len(TEXTS)
 
+# -------------------------------
+#            PROGRAM
 # -------------------------------
 
 username = input('username: ')
@@ -42,4 +40,21 @@ else:
 
     else:
         print(separator)
-        print(TEXTS)
+        text_stats = {
+            'titlecase': 0,
+            'uppercase': 0,
+            'lowercase': 0,
+            'numeric_strings': 0,
+            'sum_of_all_numbers': 0
+        }
+        chosen_text = TEXTS[user_choice]
+        list_of_words = chosen_text.split(' ')
+
+        print(f'There are {len(list_of_words)} words in the selected text.')
+        print(f'There are {text_stats["titlecase"]} titlecase words.')
+        print(f'There are {text_stats["uppercase"]} uppercase words.')
+        print(f'There are {text_stats["lowercase"]} lowercase words.')
+        print(f'There are {text_stats["numeric_strings"]} numeric strings.')
+        print(f'The sum of all the numbers {text_stats["sum_of_all_numbers"]}.')
+
+        print(separator)
