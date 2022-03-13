@@ -44,7 +44,8 @@ else:
             'uppercase': 0,
             'lowercase': 0,
             'numeric_strings': 0,
-            'sum_of_all_numbers': 0
+            'sum_of_all_numbers': 0,
+            'length_frequency': {}
         }
         chosen_text = TEXTS[int(user_choice)-1].strip().replace('\n', ' ').replace(',', '').replace('.', '')
         list_of_words = chosen_text.split(' ')
@@ -64,6 +65,12 @@ else:
             if word.isnumeric():
                 text_stats['numeric_strings'] += 1
                 text_stats['sum_of_all_numbers'] += int(word)
+            
+            word_length = len(word)
+            if text_stats['length_frequency'].get(word_length):
+                text_stats['length_frequency'][word_length] += 1
+            else:
+                text_stats['length_frequency'][word_length] = 1
 
         print(separator)
         print(f'There are {len(list_of_words)} words in the selected text.')
@@ -73,3 +80,23 @@ else:
         print(f'There are {text_stats["numeric_strings"]} numeric strings.')
         print(f'The sum of all the numbers {text_stats["sum_of_all_numbers"]}.')
         print(separator)
+
+        longest_word_length = max(list(text_stats['length_frequency'].keys()))
+        highest_frequency = max(list(text_stats['length_frequency'].values()))
+
+        second_column_name = 'OCCURENCES'
+        table_head_space = ' ' * (highest_frequency - len(second_column_name))
+
+        print(f'LEN| {second_column_name}{table_head_space} |NR.')
+        print(separator)
+
+        for i in range(1, longest_word_length+1):
+
+            if text_stats['length_frequency'].get(i):
+                word_frequency = text_stats['length_frequency'].get(i)
+            else:
+                word_frequency = 0
+            
+            cell_with_stars = ('*' * word_frequency) + (' ' * (highest_frequency - word_frequency))
+
+            print(f'{i:>3}| {cell_with_stars} |{word_frequency}')
