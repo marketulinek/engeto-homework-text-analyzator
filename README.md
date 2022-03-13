@@ -1,18 +1,18 @@
-# engeto-homework-text-analyzator
+# TEXT ANALYZATOR
 
 CURRENTLY WORK IN PROGRESS
 
-Homework for Python Academy - Text Analyzator
+Homework 1 for Python Academy - Text Analyzator
 
 
 # Task Assignment
 
-The goal is to creat Text Analyzator - program which can process arbitrarily long text a get some stats.
+The goal is to creat Text Analyzator - program which can process arbitrarily long text and get some stats.
 
 The program has to contain:
 
     1) Ask user to enter username and password
-    2) Check if entered values correspond to the registered users list
+    2) Check if entered values correspond to the list of registered users
     3) If YES, welcome the user and enable him to analyze texts
     4) If NO, alert the user and terminate the program
 
