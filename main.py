@@ -57,7 +57,7 @@ else:
 
             if word.isupper():
                 text_stats['uppercase'] += 1
-                # TODO '30N' from TEXT[1] got here but shouldn't
+                # '30N' from TEXT[1] got here but I'm not sure if it should
 
             if word.islower():
                 text_stats['lowercase'] += 1
