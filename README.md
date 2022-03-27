@@ -1,13 +1,11 @@
 # TEXT ANALYZATOR
 
-CURRENTLY WORK IN PROGRESS
-
 Homework 1 for Python Academy - Text Analyzator
 
 
 # Task Assignment
 
-The goal is to creat Text Analyzator - program which can process arbitrarily long text and get some stats.
+The goal is to create Text Analyzator - program which can process arbitrarily long text and get some stats.
 
 The program has to contain:
 
@@ -28,15 +26,15 @@ The program has to contain:
         - number of numbers (not cipher)
         - summary of numbers in the text (not cipher)
 
-    7) The program will create a bar graph representing the word length frequency
+    7) The program will show a bar graph representing the word length frequency
 
         EXAMPLE:
 
         ------------------------
         LEN|  OCCURENCES  |NR.
         ------------------------
-        1|*             |1
-        2|*********     |9
-        3|******        |6
-        4|***********   |11
+          1|*             |1
+          2|*********     |9
+          3|******        |6
+          4|***********   |11
         ...
